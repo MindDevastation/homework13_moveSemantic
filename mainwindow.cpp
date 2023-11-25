@@ -288,37 +288,41 @@ void MainWindow::on_own2Ch_activated(int index)
 
 void MainWindow::on_bldCh_activated(int index)
 {
-    switch (own) {
-    case 0:
-        ui->own2Ch->setEnabled(true);
-        ui->own2Ch->clear();
-        ui->own2Ch->addItem("(none)");
-        ui->own2Ch->addItem(own1.ownerName + " " + own1.ownerSurname);
-        ui->own2Ch->addItem(own2.ownerName + " " + own2.ownerSurname);
-        ui->own2Ch->addItem(own3.ownerName + " " + own3.ownerSurname);
-        ui->priceToBuy->setText(QString::number(own1.buildInfo[index - 1]->getPrice()));
-        break;
-    case 1:
-        ui->own2Ch->setEnabled(true);
-        ui->own2Ch->clear();
-        ui->own2Ch->addItem("(none)");
-        ui->own2Ch->addItem(own1.ownerName + " " + own1.ownerSurname);
-        ui->own2Ch->addItem(own2.ownerName + " " + own2.ownerSurname);
-        ui->own2Ch->addItem(own3.ownerName + " " + own3.ownerSurname);
-        ui->priceToBuy->setText(QString::number(own2.buildInfo[index - 1]->getPrice()));
-        break;
-    case 2:
-        ui->own2Ch->setEnabled(true);
-        ui->own2Ch->clear();
-        ui->own2Ch->addItem("(none)");
-        ui->own2Ch->addItem(own1.ownerName + " " + own1.ownerSurname);
-        ui->own2Ch->addItem(own2.ownerName + " " + own2.ownerSurname);
-        ui->own2Ch->addItem(own3.ownerName + " " + own3.ownerSurname);
-        ui->priceToBuy->setText(QString::number(own3.buildInfo[index - 1]->getPrice()));
-        break;
-    default:
-        ui->own2Ch->setEnabled(false);
-        break;
+    if(index == 0) {
+        ui->trade->setEnabled(false);
+    }else{
+        switch (own) {
+        case 0:
+            ui->own2Ch->setEnabled(true);
+            ui->own2Ch->clear();
+            ui->own2Ch->addItem("(none)");
+            ui->own2Ch->addItem(own1.ownerName + " " + own1.ownerSurname);
+            ui->own2Ch->addItem(own2.ownerName + " " + own2.ownerSurname);
+            ui->own2Ch->addItem(own3.ownerName + " " + own3.ownerSurname);
+            ui->priceToBuy->setText(QString::number(own1.buildInfo[index - 1]->getPrice()));
+            break;
+        case 1:
+            ui->own2Ch->setEnabled(true);
+            ui->own2Ch->clear();
+            ui->own2Ch->addItem("(none)");
+            ui->own2Ch->addItem(own1.ownerName + " " + own1.ownerSurname);
+            ui->own2Ch->addItem(own2.ownerName + " " + own2.ownerSurname);
+            ui->own2Ch->addItem(own3.ownerName + " " + own3.ownerSurname);
+            ui->priceToBuy->setText(QString::number(own2.buildInfo[index - 1]->getPrice()));
+            break;
+        case 2:
+            ui->own2Ch->setEnabled(true);
+            ui->own2Ch->clear();
+            ui->own2Ch->addItem("(none)");
+            ui->own2Ch->addItem(own1.ownerName + " " + own1.ownerSurname);
+            ui->own2Ch->addItem(own2.ownerName + " " + own2.ownerSurname);
+            ui->own2Ch->addItem(own3.ownerName + " " + own3.ownerSurname);
+            ui->priceToBuy->setText(QString::number(own3.buildInfo[index - 1]->getPrice()));
+            break;
+        default:
+            ui->own2Ch->setEnabled(false);
+            break;
+        }
     }
 }
 
